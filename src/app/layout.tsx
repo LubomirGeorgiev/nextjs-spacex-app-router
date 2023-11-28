@@ -6,6 +6,8 @@ import { cookies } from "next/headers";
 import { TRPCReactProvider } from "@/trpc/react";
 import { Providers } from "./providers";
 
+import './dayjs'
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
