@@ -36,7 +36,13 @@ export default async function Home({
   return (
     <main className="container mx-auto px-6 mt-16">
       <h1 className="text-gray-500 text-xl md:text-4xl font-medium mb-8 text-center">SpaceX Launches</h1>
-      <div className='text-center mb-14'>All data is fetched and Server-Side-Rendered from <NextUiLink href='https://docs.spacexdata.com/' target="_blank">https://docs.spacexdata.com/</NextUiLink></div>
+      <div className='text-center mb-6'>All data is fetched and Server-Side-Rendered from <NextUiLink isExternal showAnchorIcon href='https://docs.spacexdata.com/' target="_blank">https://docs.spacexdata.com/</NextUiLink></div>
+      <div className='text-center mb-14'>The source code is available on
+        {' '}
+        <NextUiLink isExternal showAnchorIcon href='https://github.com/LubomirGeorgiev/nextjs-spacex-app-router' target="_blank">
+        Github
+        </NextUiLink>
+      </div>
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {launches?.results?.map((launch) => {
 
