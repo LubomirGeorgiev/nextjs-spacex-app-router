@@ -1,7 +1,7 @@
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
+import { createTRPCRouter, publicProcedure } from '@/server/api/trpc';
 
 import type { Launch } from '../launch-types'
-import { z } from "zod";
+import { z } from 'zod';
 
 const perPage = 10
 

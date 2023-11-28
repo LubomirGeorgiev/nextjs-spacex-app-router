@@ -1,25 +1,25 @@
-import { api } from "@/trpc/server";
-import Pagination from "./pagination";
-import { isNumeric } from "./utils";
+import { api } from '@/trpc/server';
+import Pagination from './pagination';
+import { isNumeric } from './utils';
 
-import { AiOutlineNumber } from "react-icons/ai"
-import { FaLocationDot } from "react-icons/fa6"
-import { IoRocketOutline } from "react-icons/io5"
-import { CiImageOn } from "react-icons/ci"
+import { AiOutlineNumber } from 'react-icons/ai'
+import { FaLocationDot } from 'react-icons/fa6'
+import { IoRocketOutline } from 'react-icons/io5'
+import { CiImageOn } from 'react-icons/ci'
 
-import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink } from "@nextui-org/react";
-import Image from "next/image";
-import clsx from "clsx";
-import dayjs from "dayjs";
-import Link from "next/link";
+import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink } from '@nextui-org/react';
+import Image from 'next/image';
+import clsx from 'clsx';
+import dayjs from 'dayjs';
+import Link from 'next/link';
 
 type SearchParams = {
   page: number;
 }
 
 export const metadata = {
-  title: "SpaceX Launches",
-  description: "List of SpaceX Launches",
+  title: 'SpaceX Launches',
+  description: 'List of SpaceX Launches',
 };
 
 export default async function Home({

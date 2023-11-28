@@ -7,7 +7,6 @@ import 'react-multi-carousel/lib/styles.css'
 const Carousel = ({ images }: {
   images: string[]
 }) => {
-  console.log('--images', images)
 
   return (
     Array.isArray(images) && images.length > 0 && (

@@ -1,22 +1,22 @@
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
-import { Inter } from "next/font/google";
-import { cookies } from "next/headers";
+import { Inter } from 'next/font/google';
+import { cookies } from 'next/headers';
 
-import { TRPCReactProvider } from "@/trpc/react";
-import { Providers } from "./providers";
+import { TRPCReactProvider } from '@/trpc/react';
+import { Providers } from './providers';
 
 import './dayjs'
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
 export const metadata = {
-  title: "SpaceX",
-  description: "List of SpaceX Launches",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  title: 'SpaceX',
+  description: 'List of SpaceX Launches',
+  icons: [{ rel: 'icon', url: '/favicon.ico' }],
 };
 
 export default function RootLayout({

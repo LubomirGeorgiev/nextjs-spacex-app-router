@@ -1,11 +1,11 @@
-import { api } from "@/trpc/server";
-import { isNumeric } from "../../utils";
+import { api } from '@/trpc/server';
+import { isNumeric } from '../../utils';
 
-import { AiOutlineNumber } from "react-icons/ai"
-import { FaLocationDot } from "react-icons/fa6"
-import { IoRocketOutline } from "react-icons/io5"
+import { AiOutlineNumber } from 'react-icons/ai'
+import { FaLocationDot } from 'react-icons/fa6'
+import { IoRocketOutline } from 'react-icons/io5'
 
-import { Divider, Tooltip } from "@nextui-org/react";
+import { Divider, Tooltip } from '@nextui-org/react';
 
 import Carousel from './carousel'
 
@@ -16,8 +16,8 @@ type Params = {
 }
 
 export const metadata = {
-  title: "SpaceX Launches",
-  description: "List of SpaceX Launches",
+  title: 'SpaceX Launches',
+  description: 'List of SpaceX Launches',
 };
 
 export default async function Home({ params }: {
@@ -27,8 +27,6 @@ export default async function Home({ params }: {
   const launch = await api.spacex.launch.query({
     flightNumber
   });
-
-  console.log('--params', launch)
 
   return (
     <main className="container mx-auto px-6 mt-12">

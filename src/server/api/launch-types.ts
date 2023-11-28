@@ -110,7 +110,7 @@ export interface Timeline {
   stage_sep: number
   second_stage_ignition: number
   fairing_deploy: number
-  "seco-1": number
+  'seco-1': number
   payload_deploy: number
 }
 
