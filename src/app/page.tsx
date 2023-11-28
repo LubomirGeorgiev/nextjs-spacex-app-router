@@ -6,7 +6,7 @@ import { AiOutlineNumber } from "react-icons/ai"
 import { FaLocationDot } from "react-icons/fa6"
 import { IoRocketOutline } from "react-icons/io5"
 
-import { Badge, Card, CardBody, CardHeader, Divider, Tooltip } from "@nextui-org/react";
+import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink } from "@nextui-org/react";
 import Image from "next/image";
 import clsx from "clsx";
 import dayjs from "dayjs";
@@ -28,7 +28,8 @@ export default async function Home({
 
   return (
     <main className="container mx-auto px-6 mt-12">
-      <h1 className="text-gray-500 text-xl md:text-4xl font-medium mb-10 text-center">SpaceX Launches</h1>
+      <h1 className="text-gray-500 text-xl md:text-4xl font-medium mb-6 text-center">SpaceX Launches</h1>
+      <div className='text-center mb-10'>All data is fetched and Server-Side-Rendered from <NextUiLink href='https://docs.spacexdata.com/' target="_blank">https://docs.spacexdata.com/</NextUiLink></div>
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {launches?.results?.map((launch) => {
 
@@ -77,14 +78,14 @@ export default async function Home({
                   <Divider />
                   <CardBody>
                     <div className='grid gap-2 grid-cols-2'>
-                      <Tooltip content={`Flight Number ${launch?.flight_number}`}>
+                      <Tooltip color='primary' content={`Flight Number ${launch?.flight_number}`}>
                         <div className='flex items-center'>
                           <AiOutlineNumber size={24} className='mr-4' />
                           {launch?.flight_number}
                         </div>
                       </Tooltip>
 
-                      <Tooltip content='Rocket'>
+                      <Tooltip color='primary' content='Rocket'>
                         <div className='flex items-center'>
                           <IoRocketOutline size={24} className='mr-4' />
                           {launch?.rocket?.rocket_name}
@@ -92,7 +93,7 @@ export default async function Home({
                       </Tooltip>
                     </div>
 
-                    <Tooltip content='Launch Site'>
+                    <Tooltip color='primary' content='Launch Site'>
                       <div className='flex items-center mt-4'>
                         <FaLocationDot size={24} className='mr-4' /> {launch?.launch_site?.site_name_long}
                       </div>
