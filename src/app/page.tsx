@@ -5,6 +5,7 @@ import { isNumeric } from "./utils";
 import { AiOutlineNumber } from "react-icons/ai"
 import { FaLocationDot } from "react-icons/fa6"
 import { IoRocketOutline } from "react-icons/io5"
+import { CiImageOn } from "react-icons/ci"
 
 import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink } from "@nextui-org/react";
 import Image from "next/image";
@@ -46,7 +47,7 @@ export default async function Home({
               color={launch?.launch_failure_details?.reason ? 'danger' : 'success'}
             >
               <Link
-                href={`/launches/${launch?.flight_number}`}
+                href={`/launch/${launch?.flight_number}`}
                 passHref
                 legacyBehavior
               >
@@ -82,7 +83,12 @@ export default async function Home({
                   </CardHeader>
                   <Divider />
                   <CardBody>
-                    <div className='grid gap-2 grid-cols-2'>
+                    <div className={
+                      clsx(
+                        'grid gap-3 mt-2',
+                        Boolean(launch?.links?.flickr_images?.length) ? 'grid-cols-3' : 'grid-cols-2',
+                      )
+                    }>
                       <Tooltip color='primary' content={`Flight Number ${launch?.flight_number}`}>
                         <div className='flex items-center'>
                           <AiOutlineNumber size={24} className='mr-4' />
@@ -96,6 +102,15 @@ export default async function Home({
                           {launch?.rocket?.rocket_name}
                         </div>
                       </Tooltip>
+
+                      {Boolean(launch?.links?.flickr_images?.length) && (
+                        <Tooltip color='primary' content={`${launch?.links?.flickr_images?.length} Images available`}>
+                          <div className='flex items-center'>
+                            <CiImageOn size={24} className='mr-4' />
+                            {launch?.links?.flickr_images?.length}
+                          </div>
+                        </Tooltip>
+                      )}
                     </div>
 
                     <Tooltip color='primary' content='Launch Site'>

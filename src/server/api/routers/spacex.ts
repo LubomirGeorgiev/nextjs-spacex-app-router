@@ -32,4 +32,20 @@ export const spacexRouter = createTRPCRouter({
         hasNextPage: page < totalPages,
       }
     }),
+  launch: publicProcedure
+    .input(z.object({
+      flightNumber: z.number().optional().default(1),
+    }).optional())
+    .query(async ({ input }) => {
+      const flightNumber = input?.flightNumber ?? 1
+
+      const launchResponse = await fetch(`https://api.spacexdata.com/v3/launches/${flightNumber}`, {
+        next: {
+          revalidate: 3600
+        }
+      })
+
+
+      return await launchResponse.json() as Launch
+    }),
 });
