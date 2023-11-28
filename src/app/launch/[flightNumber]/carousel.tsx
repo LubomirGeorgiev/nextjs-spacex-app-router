@@ -31,10 +31,10 @@ const Carousel = ({ images }: {
         }
       }}
     >
-      {images.map((image, index) => (
+      {images.map((image) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          key={`image-${index}`}
+          key={`image-${image}`}
           className='w-full h-auto'
           alt='Mission image'
           src={image}
