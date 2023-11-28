@@ -16,6 +16,11 @@ type SearchParams = {
   page: number;
 }
 
+export const metadata = {
+  title: "SpaceX Launches",
+  description: "List of SpaceX Launches",
+};
+
 export default async function Home({
   searchParams
 }: {
