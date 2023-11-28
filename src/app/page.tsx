@@ -1,13 +1,14 @@
 import { api } from '@/trpc/server';
 import Pagination from './pagination';
 import { isNumeric } from './utils';
+import ActionLink from './link';
 
 import { AiOutlineNumber } from 'react-icons/ai'
 import { FaLocationDot } from 'react-icons/fa6'
 import { IoRocketOutline } from 'react-icons/io5'
 import { CiImageOn } from 'react-icons/ci'
 
-import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink } from '@nextui-org/react';
+import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink, CardFooter } from '@nextui-org/react';
 import Image from 'next/image';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
@@ -33,14 +34,15 @@ export default async function Home({
   });
 
   return (
-    <main className="container mx-auto px-6 mt-12">
-      <h1 className="text-gray-500 text-xl md:text-4xl font-medium mb-6 text-center">SpaceX Launches</h1>
-      <div className='text-center mb-10'>All data is fetched and Server-Side-Rendered from <NextUiLink href='https://docs.spacexdata.com/' target="_blank">https://docs.spacexdata.com/</NextUiLink></div>
+    <main className="container mx-auto px-6 mt-16">
+      <h1 className="text-gray-500 text-xl md:text-4xl font-medium mb-8 text-center">SpaceX Launches</h1>
+      <div className='text-center mb-14'>All data is fetched and Server-Side-Rendered from <NextUiLink href='https://docs.spacexdata.com/' target="_blank">https://docs.spacexdata.com/</NextUiLink></div>
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {launches?.results?.map((launch) => {
 
           return (
             <Badge
+              key={`launch-${launch?.mission_name}`}
               content=' '
               size='sm'
               className="right-0 top-0"
@@ -53,7 +55,6 @@ export default async function Home({
               >
                 <Card
                   as='a'
-                  key={`launch-${launch?.mission_name}`}
                   className='w-full'
                 >
                   <CardHeader className='relative py-2 justify-between'>
@@ -104,10 +105,10 @@ export default async function Home({
                       </Tooltip>
 
                       {Boolean(launch?.links?.flickr_images?.length) && (
-                        <Tooltip color='primary' content={`${launch?.links?.flickr_images?.length} Images available`}>
+                        <Tooltip color='primary' content={`${launch?.links?.flickr_images?.length} photos available in the details page`}>
                           <div className='flex items-center'>
                             <CiImageOn size={24} className='mr-4' />
-                            {launch?.links?.flickr_images?.length}
+                            {launch?.links?.flickr_images?.length} photos
                           </div>
                         </Tooltip>
                       )}
@@ -125,6 +126,12 @@ export default async function Home({
                       {launch?.details ? launch?.details : 'No details provided.'}
                     </div>
                   </CardBody>
+                  <Divider/>
+                  <CardFooter>
+                    <ActionLink href={`/launch/${launch?.flight_number}`}>
+                      More info about {launch?.mission_name}
+                    </ActionLink>
+                  </CardFooter>
                 </Card>
               </Link>
             </Badge>

@@ -11,6 +11,7 @@ export default function Pagination(paginationProps: PaginationProps) {
   return (
       <NextUIPagination
         {...paginationProps}
+        size='lg'
         onChange={(page) => {
           router.push(`/?page=${page}`)
         }}
