@@ -3,7 +3,7 @@ import { createTRPCRouter, publicProcedure } from '@/server/api/trpc';
 import type { Launch } from '../launch-types'
 import { z } from 'zod';
 
-const perPage = 10
+const perPage = 12
 
 export const spacexRouter = createTRPCRouter({
   launches: publicProcedure
