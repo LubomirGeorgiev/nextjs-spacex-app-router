@@ -1,5 +1,7 @@
 import '@/styles/globals.css';
 
+import { SpeedInsights } from '@vercel/speed-insights/next'
+
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`font-sans ${inter.variable}`}>
+        <SpeedInsights />
         <TRPCReactProvider cookies={cookies().toString()}>
           <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           {children}
