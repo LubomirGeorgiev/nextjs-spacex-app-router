@@ -92,20 +92,19 @@ export default async function Home({
                   <CardBody>
                     <div className={
                       clsx(
-                        'grid gap-3 mt-2',
-                        Boolean(launch?.links?.flickr_images?.length) ? 'grid-cols-3' : 'grid-cols-2',
+                        'grid gap-3 mt-2 grid-flow-col',
                       )
                     }>
                       <Tooltip color='primary' content={`Flight Number ${launch?.flight_number}`}>
                         <div className='flex items-center'>
-                          <AiOutlineNumber size={24} className='mr-4' />
+                          <AiOutlineNumber size={24} className='mr-3' />
                           {launch?.flight_number}
                         </div>
                       </Tooltip>
 
                       <Tooltip color='primary' content='Rocket'>
                         <div className='flex items-center'>
-                          <IoRocketOutline size={24} className='mr-4' />
+                          <IoRocketOutline size={24} className='mr-3' />
                           {launch?.rocket?.rocket_name}
                         </div>
                       </Tooltip>
@@ -113,7 +112,7 @@ export default async function Home({
                       {Boolean(launch?.links?.flickr_images?.length) && (
                         <Tooltip color='primary' content={`${launch?.links?.flickr_images?.length} photos available in the details page`}>
                           <div className='flex items-center'>
-                            <CiImageOn size={24} className='mr-4' />
+                            <CiImageOn size={24} className='mr-3' />
                             {launch?.links?.flickr_images?.length} photos
                           </div>
                         </Tooltip>
