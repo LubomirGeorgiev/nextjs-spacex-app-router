@@ -9,7 +9,7 @@ import { Divider, Tooltip } from '@nextui-org/react';
 
 import Carousel from './carousel'
 
-
+export const revalidate = 3600
 
 type Params = {
   flightNumber: number;

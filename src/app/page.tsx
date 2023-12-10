@@ -14,6 +14,8 @@ import clsx from 'clsx';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 
+export const revalidate = 3600
+
 type SearchParams = {
   page: number;
 }
