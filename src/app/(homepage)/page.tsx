@@ -1,6 +1,6 @@
 import { api } from '@/trpc/server';
 import Pagination from './pagination';
-import { isNumeric } from './utils';
+import { isNumeric } from '../utils';
 import ActionLink from './link';
 
 import { AiOutlineNumber } from 'react-icons/ai'

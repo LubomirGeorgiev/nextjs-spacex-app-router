@@ -45,7 +45,6 @@ export const spacexRouter = createTRPCRouter({
         }
       })
 
-
       return await launchResponse.json() as Launch
     }),
 });
