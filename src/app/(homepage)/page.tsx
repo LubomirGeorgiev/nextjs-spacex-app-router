@@ -8,7 +8,17 @@ import { FaLocationDot } from 'react-icons/fa6'
 import { IoRocketOutline } from 'react-icons/io5'
 import { CiImageOn } from 'react-icons/ci'
 
-import { Badge, Card, CardBody, CardHeader, Divider, Tooltip, Link as NextUiLink, CardFooter } from '@nextui-org/react';
+import {
+  Badge,
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  Tooltip,
+  Link as NextUiLink,
+  CardFooter
+} from '@nextui-org/react';
+
 import Image from 'next/image';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
@@ -45,6 +55,7 @@ export default async function Home({
         Github
         </NextUiLink>
       </div>
+
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {launches?.results?.map((launch) => {
 
